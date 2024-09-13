@@ -72,22 +72,22 @@ const HomePage = () => {
       <div>
       <section class="recomendations">
         {/* Header com barra de pesquisa e botão de página inicial */}
-          <header className="header">
+        <header className="header">
           <Link to="/" className="home-button">
             <i className="fa fa-home"></i> HOME
           </Link>
           <form onSubmit={handleSearchSubmit} className="search-bar">
             <input
               type="text"
-              placeholder="Buscar filmes e séries..."
+              placeholder="Buscar filmes, séries, atores..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}/>
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </form>
           <div className="search-icon">
-                <i className="fa fa-search" aria-hidden="true"></i>
-              </div>
+            <i className="fa fa-search" aria-hidden="true"></i>
+          </div>
         </header>
-
           {/* Carrossel de recomendações */}
           <div className="carrossel">
             <h1 className='tituloh1'>Recomendações de nossos editores</h1>

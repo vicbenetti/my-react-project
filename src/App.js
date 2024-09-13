@@ -6,6 +6,8 @@ import MoviePage from './pages/MoviePage';
 import SeriesPage from './pages/SeriesPage';
 import './App.css'; // Certifique-se de que o caminho para o CSS está correto
 import SearchResultsPage from "./pages/SearchResultsPage";
+import ActorPage from "./pages/ActorPage"; // Importar o novo componente
+
 
 const App = () => {
   return (
@@ -15,6 +17,7 @@ const App = () => {
         <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="/tv/:id" element={<SeriesPage />} />
         <Route path="/search" element={<SearchResultsPage />} />
+        <Route path="/actor/:id" element={<ActorPage />} />
       </Routes>
     </Router>
   );

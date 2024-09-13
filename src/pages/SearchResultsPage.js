@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const API_KEY = '5b5a87f250e0180bbc1c49b6d5fdf5db';
 const SEARCH_API_URL = 'https://api.themoviedb.org/3/search/multi';
 
 const SearchResultsPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const query = new URLSearchParams(location.search).get('query') || '';
   const [searchQuery, setSearchQuery] = useState(query);
   const [searchResults, setSearchResults] = useState([]);
@@ -18,7 +19,15 @@ const SearchResultsPage = () => {
       const response = await axios.get(SEARCH_API_URL, {
         params: { api_key: API_KEY, query, language: 'pt-BR' },
       });
-      setSearchResults(response.data.results.slice(0, 16));
+
+      // Filtrar resultados para exibir apenas itens com mais de 500 votos (ou atores)
+      const filteredResults = response.data.results
+        .filter(result => 
+          (result.vote_count > 50 || result.media_type === 'person') // Verifica contagem de votos ou se é um ator
+        )
+        .slice(0, 16); // Limita aos 16 primeiros resultados
+
+      setSearchResults(filteredResults);
     } catch (err) {
       console.error("Erro ao buscar resultados:", err);
     }
@@ -33,51 +42,63 @@ const SearchResultsPage = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    fetchSearchResults(searchQuery);
+    navigate(`/search?query=${encodeURIComponent(searchQuery)}`); // Atualizar a URL
   };
 
   return (
     <body>
-    <div>
-      {}
-      <header className="header">
+      <div>
+        <header className="header">
           <Link to="/" className="home-button">
             <i className="fa fa-home"></i> HOME
           </Link>
           <form onSubmit={handleSearchSubmit} className="search-bar">
             <input
               type="text"
-              placeholder="Buscar filmes e séries..."
+              placeholder="Buscar filmes, séries, atores..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}/>
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </form>
           <div className="search-icon">
-                <i className="fa fa-search" aria-hidden="true"></i>
-              </div>
+            <i className="fa fa-search" aria-hidden="true"></i>
+          </div>
         </header>
 
-      <h1 class="tituloh1">Resultados da sua busca</h1>
+        <h1 className="tituloh1">Resultados da sua busca: {query}</h1>
 
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <div className="search-results">
-          {searchResults.map((result) => (
-            <div key={result.id} className="result-item">
-              <Link to={result.media_type === "movie" ? `/movie/${result.id}` : `/tv/${result.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w200/${result.poster_path}`}
-                  alt={result.title || result.name}
-                />
-                <div className="overlay">
-                  <h3>{result.title}</h3>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+        {loading ? (
+          <div></div>
+        ) : (
+          <div className="search-results">
+            {searchResults.map((result) => (
+              <div key={result.id} className="result-item">
+                {result.media_type === 'movie' || result.media_type === 'tv' ? (
+                  <Link to={result.media_type === "movie" ? `/movie/${result.id}` : `/tv/${result.id}`}>
+                    <img
+                      src={result.poster_path ? `https://image.tmdb.org/t/p/w200/${result.poster_path}` : 'https://via.placeholder.com/200x300?text=No+Image'}
+                      alt={result.title || result.name}
+                    />
+                    <div className="overlay">
+                      <h3>{result.title || result.name}</h3>
+                    </div>
+                  </Link>
+                ) : (
+                  <Link to={`/actor/${result.id}`}>
+                    <img
+                      src={result.profile_path ? `https://image.tmdb.org/t/p/w200/${result.profile_path}` : 'https://via.placeholder.com/200x300?text=No+Image'}
+                      alt={result.name}
+                    />
+                    <div className="overlay">
+                      <h3>{result.name}</h3>
+                    </div>
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </body>
   );
 };
