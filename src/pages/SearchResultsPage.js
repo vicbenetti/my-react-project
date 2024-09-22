@@ -25,7 +25,7 @@ const SearchResultsPage = () => {
         .filter(result => 
           (result.vote_count > 50 || result.media_type === 'person') // Verifica contagem de votos ou se é um ator
         )
-        .slice(0, 16); // Limita aos 16 primeiros resultados
+        .slice(0, 18); // Limita aos 16 primeiros resultados
 
       setSearchResults(filteredResults);
     } catch (err) {
@@ -46,9 +46,9 @@ const SearchResultsPage = () => {
   };
 
   return (
-    <body>
+    <body className='resultados'>
       <div>
-        <header className="header">
+      <header className="header">
           <Link to="/" className="home-button">
             <i className="fa fa-home"></i> HOME
           </Link>
@@ -58,11 +58,12 @@ const SearchResultsPage = () => {
               placeholder="Buscar filmes, séries, atores..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
             />
+            <button type="submit" className="search-button">
+              <i className="fa fa-search" aria-hidden="true"></i>
+            </button>
           </form>
-          <div className="search-icon">
-            <i className="fa fa-search" aria-hidden="true"></i>
-          </div>
         </header>
 
         <h1 className="tituloh1">Resultados da sua busca: {query}</h1>

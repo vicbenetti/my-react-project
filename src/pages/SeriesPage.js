@@ -18,6 +18,7 @@ const TVShowPage = () => {
   const { id } = useParams();
   const [tvShow, setTVShow] = useState(null);
   const [cast, setCast] = useState([]);
+  const [providers, setProviders] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
   const POSTER_URLS = {
@@ -41,6 +42,13 @@ const TVShowPage = () => {
           `https://api.themoviedb.org/3/tv/${id}/credits?api_key=5b5a87f250e0180bbc1c49b6d5fdf5db&language=pt-BR`
         );
         setCast(castResponse.data.cast);
+
+        const providersResponse = await axios.get(
+          `https://api.themoviedb.org/3/tv/${id}/watch/providers?api_key=5b5a87f250e0180bbc1c49b6d5fdf5db`
+        );
+        const providerData = providersResponse.data.results.BR;
+        setProviders(providerData || null);
+
       } catch (error) {
         console.error("Erro ao buscar detalhes da série:", error);
       }
@@ -65,7 +73,7 @@ const TVShowPage = () => {
   return (
     <>
       <body>
-      <header className="header">
+        <header className="header">
           <Link to="/" className="home-button">
             <i className="fa fa-home"></i> HOME
           </Link>
@@ -75,11 +83,12 @@ const TVShowPage = () => {
               placeholder="Buscar filmes, séries, atores..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
             />
+            <button type="submit" className="search-button">
+              <i className="fa fa-search" aria-hidden="true"></i>
+            </button>
           </form>
-          <div className="search-icon">
-            <i className="fa fa-search" aria-hidden="true"></i>
-          </div>
         </header>
 
         <div className="banner" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${tvShow.backdrop_path})` }}></div>
@@ -106,21 +115,46 @@ const TVShowPage = () => {
                 {tvShow.name} <span className="release-year">({tvShow.first_air_date.split('-')[0]})</span>
               </h1>
               <p>{tvShow.overview}</p>
-              <h4>
-                Temporadas: {tvShow.number_of_seasons} | Episódios: {tvShow.number_of_episodes}
-              </h4>
+              
+              {/* Informações da série */}
+              <div className="movie-info">
+                <h4>
+                  Temporadas: {tvShow.number_of_seasons} | Episódios: {tvShow.number_of_episodes}
+                </h4>
+
+                {/* Exibe provedores de streaming se existirem */}
+                {providers && providers.flatrate && providers.flatrate.length > 0 && (
+                  <div className="streaming-providers">
+                    <div className="provider-list">
+                      {providers.flatrate.slice(0, 3).map((provider) => (
+                        <div key={provider.provider_id} className="provider-item">
+                          <img
+                            src={`https://image.tmdb.org/t/p/w45/${provider.logo_path}`}
+                            alt={provider.provider_name}
+                            title={provider.provider_name}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <div className="barra">
                 <hr />
               </div>
               <h3>Elenco:</h3>
               <div className="cast-list">
-                {cast.slice(0, 5).map(actor => (
+                {cast.slice(0, 5).map((actor) => (
                   <Link to={`/actor/${actor.id}`} key={actor.cast_id} className="cast-member">
                     <img
-                      src={actor.profile_path ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}` : 'https://via.placeholder.com/200x300?text=No+Image'}
+                      src={actor.profile_path
+                        ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
+                        : "https://via.placeholder.com/200x300?text=No+Image"}
                       alt={actor.name}
                       className="cast-photo"
                     />
+                    <div className="character-name">{actor.character}</div>
                     <p>{actor.name}</p>
                   </Link>
                 ))}

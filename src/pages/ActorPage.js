@@ -90,22 +90,23 @@ const ActorPage = () => {
 
   return (
     <body className="bodyactor">
-        <header className="header">
-          <Link to="/" className="home-button">
-            <i className="fa fa-home"></i> HOME
-          </Link>
-          <form onSubmit={handleSearchSubmit} className="search-bar">
-            <input
-              type="text"
-              placeholder="Buscar filmes, séries, atores..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </form>
-          <div className="search-icon">
+      <header className="header">
+        <Link to="/" className="home-button">
+          <i className="fa fa-home"></i> HOME
+        </Link>
+        <form onSubmit={handleSearchSubmit} className="search-bar">
+          <input
+            type="text"
+            placeholder="Buscar filmes, séries, atores..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+          />
+          <button type="submit" className="search-button">
             <i className="fa fa-search" aria-hidden="true"></i>
-          </div>
-        </header>
+          </button>
+        </form>
+      </header>
       <br></br>
       <br></br>
       <div className="actor-details">
@@ -124,7 +125,7 @@ const ActorPage = () => {
                 <hr/>
               </div>
             <div className="know-for">
-              <h3>Conhecido por:</h3>
+              <h3>Conhecido(a) por:</h3>
             </div>
             <div className="movie-list">
               {knownFor.map(item => (

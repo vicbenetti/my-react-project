@@ -167,7 +167,7 @@ h2{
 
 .watch{
     background-color: rgb(24, 27, 30);
-    width: 240px;
+    width: 250px;
     height: 50px;
     font-size: 24px;
     color: rgb(200, 212, 224);
@@ -308,4 +308,8 @@ a {
 
 .indexText {
     max-width: 50%;
+}
+
+i {
+    margin-right: 5%;
 }

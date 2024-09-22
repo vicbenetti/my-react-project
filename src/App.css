@@ -53,6 +53,25 @@ h1 {
   padding: 30px;
 }
 
+.movie-list2 {
+
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 colunas de tamanho igual */
+
+}
+
+.movie-container {
+  max-width: 1200px; /* Define uma largura máxima para o container */
+  margin: 0 auto; /* Centraliza o container na tela */
+  padding: 0 20px; /* Adiciona um pequeno espaçamento nas laterais */
+}
+
+
+
+
 .movie-item {
   background-color: #2c2c2c;
   border: 2px solid #4e4e4e5c;
@@ -282,7 +301,7 @@ h1 {
 
 .cast-photo {
   width: 120px;
-  height: 180px;
+  height: 120px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -300,7 +319,7 @@ i {
 }
 
 header {
-  display: flex;
+  display:inline-block;
   margin: 0;
   background-color: rgb(20, 24, 28);
   box-shadow: 0 10px 16px rgba(0, 0, 0, 0.6);
@@ -341,7 +360,7 @@ header {
   background-color: white;
 }
 
-.search-bar button:hover, .home-button:hover, .search-button:hover {
+.home-button:hover {
   background-color: rgb(11, 14, 15);
   color: white;
 }
@@ -354,7 +373,7 @@ header {
 /* Estilo para o botão de retorno à página inicial */
 
 
-.home-button, .search-bar button {
+.home-button {
   float: right;
   display: block;
   margin: auto;
@@ -392,13 +411,15 @@ header {
 }
 
 .iframe-container {
-  display: flex;
+  display: grid;
   justify-content: center;
+  align-items: center;
   margin: 35px;
-}
-
-.iframe-container iframe {
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0f1215;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 50%, #0f1215 100%);
 }
 
 .iframezao {
@@ -489,10 +510,21 @@ hr {
   height: 2px; /* Define a altura da linha */
   background-color: #f6f6f640; /* Define a cor da linha */
   margin-top: 0;
+  max-width: 1920px;
 }
 
+
+
 .seriesfavoritas {
-  background-color: #1f2227;
+  max-width: 1903px;
+  margin: 0 auto;
+  background: linear-gradient(to top, #1d2229 75%, #1f2227 100%);
+}
+
+.filmesavaliados {
+  max-width: 1903px;
+  margin: 0 auto;
+  background: linear-gradient(to top, #121416 25%, #15191e 100%);
 }
 
 .tituloh1 {
@@ -560,7 +592,7 @@ hr {
   width: 120px;
   height: 120px;
   border-radius: 120px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 1 4px 16px rgba(0, 0, 0, 0.5);
   
 
 }
@@ -577,6 +609,7 @@ hr {
   font-size: 160%;
   text-align: left;
   margin-left: 5%;
+  margin-bottom: 3%;
 }
 
 .cast-member p {
@@ -605,6 +638,7 @@ hr {
   color: rgba(255, 255, 255, 0.7);
   font-style: italic;
   padding-left: 1%;
+  font-weight: 500;
 }
 
 .barra hr {
@@ -734,16 +768,27 @@ hr {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  padding: 30px;
+  gap: 20px;
+  padding: 20px;
 }
 
 .recomendations {
   background-color: #20272e;
+  max-width: 1903px;
+  margin: 0 auto;
+  -webkit-box-shadow: -2px 0px 7px 0px rgba(0, 0, 0, 0.7), 2px 0px 7px 0px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: -2px 0px 7px 0px rgba(0, 0, 0, 0.7), 2px 0px 7px 0px rgba(0, 0, 0, 0.7);
+  box-shadow: -2px 0px 7px 0px rgba(0, 0, 0, 0.7), 2px 0px 7px 0px rgba(0, 0, 0, 0.7);
+  margin-top: -0.7%;
+}
+
+.carrossel {
+  background-color: #20272e;
+  
 }
 
 .header {
-  display: flex;
+  display:flex ;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
@@ -772,19 +817,18 @@ hr {
 
 .search-icon {
   position: absolute;
-  right: 26px;
+  right: 22px;
   top: 50%;
   transform: translateY(-50%);
   border: none;
   background: none;
   padding: 10px;
-  padding-right: 10px;
+  padding-right: 12px;
   font-size: 20px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
   color: #666;
   background-color: rgb(220, 221, 221);
-
 }
 
 .cast-list a {
@@ -933,17 +977,204 @@ hr {
   margin: 0;
   font-size: 16px;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   color: white; /* Garante que o texto do título seja branco */
   font-style: normal;
+  padding-left: 1%;
 }
 
 h4 {
   font-size: 150%;
   color: rgba(255, 255, 255, 0.60);
   font-family:Tahoma, sans-serif;
-  font-style: italic;
   font-weight: 500;
+}
+
+.cast-member {
+  position: relative;
+}
+
+.cast-member:hover .cast-photo {
+  opacity: 0.4;
+  transform: scale(1.04);
+  transition: 0.3s ease;
+}
+
+.character-name {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
+
+.cast-member:hover .character-name {
+  opacity: 1;
+}
+
+
+@media (max-width: 1920px) {
+  .movie-details, .tv-show-details {
+  position: relative;
+  min-height: 70vh; /* Altura mínima da página */
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 420px; /* Espaço no topo para o banner */
+  background-color: #16181c; /* Cor de fundo padrão para o resto da página */
+  overflow: hidden;
+}
+}
+
+
+@media (max-width: 1279px) {
+  .movie-list2 {
+    display: flex; /* Muda o layout para flex */
+    flex-wrap: wrap; /* Permite que os itens se quebrem em várias linhas */
+    justify-content: center; /* Centraliza os itens na tela */
+  }
+
+  .movie-item {
+    margin: 5px; /* Adiciona um espaçamento entre os itens */
+  }
+}
+
+@media (min-width: 1920px) {
+
+  .iframe-container {
+    display: grid;
+    justify-content: center;
+  }
+  
+  .iframe-container iframe {
+    max-width: 100%;
+    height: 761px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Alinha os itens verticalmente */
+    width: 100%; /* Garante que o menu ocupe 100% da largura */
+    box-sizing: border-box; /* Para garantir que o padding não aumente a largura */
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    position: relative; /* Posiciona o ícone dentro do input */
+    margin-left: 650px; /* Mantém o espaçamento desejado */
+  }
+  
+  .home-button {
+    margin-right: 650px; /* Mantém o espaçamento do botão "HOME" */
+  }
+  
+}
+
+@media (max-width: 1919px) {
+  .iframe-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .iframe-container iframe {
+    max-width: 100%;
+  }
+
+
+  
+}
+
+
+.search-bar {
+  position: relative; /* Posiciona o ícone dentro do input */
+
+}
+
+.homepage {
+  background-color: #16181c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-input {
+  width: 300px; /* Define a largura da barra de pesquisa */
+  padding: 10px 40px 10px 10px; /* Cria um espaço à direita para o ícone de pesquisa */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-button {
+  position: absolute;
+  right: 14px; /* Coloca o ícone à direita dentro do input */
+  top: 50%;
+  transform: translateY(-50%); /* Alinha o ícone verticalmente */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 18px;
+  margin-right: -2%;
+}
+
+.search-button i {
+  pointer-events: none; /* Evita que o ícone bloqueie o clique no botão */
+}
+
+
+
+
+
+
+
+.movie-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permite ajuste em telas menores */
+  margin-bottom: -3%;
+}
+
+.movie-info h4 {
+  margin: 0;
+  margin-left: 5%;
+  margin-top: 2px;
+  margin-bottom: 18px;
+}
+
+.streaming-providers {
+  display: flex;
+  align-items: center;
+}
+
+.provider-list {
+  display: flex;
+  gap: 10px; /* Espaçamento entre os ícones */
+}
+
+.provider-item img {
+  width: 45px; /* Define o tamanho dos ícones */
+  height: auto;
 }

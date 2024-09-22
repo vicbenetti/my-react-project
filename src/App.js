@@ -7,6 +7,8 @@ import SeriesPage from './pages/SeriesPage';
 import './App.css'; // Certifique-se de que o caminho para o CSS está correto
 import SearchResultsPage from "./pages/SearchResultsPage";
 import ActorPage from "./pages/ActorPage"; // Importar o novo componente
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 
 const App = () => {
