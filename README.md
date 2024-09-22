@@ -1,6 +1,6 @@
 ## Sobre o projeto:
 
-Um site de filmes e séries inspirado em plataformas populares como Letterboxd e IMDb, projetado para que os usuários possam descobrir e explorar novas produções, atores, títulos bem avaliados e acompanhar o que está em alta no momento.
+Um site de filmes e séries inspirado em plataformas populares como <a href="https://letterboxd.com/">Letterboxd</a> e <a href="https://imdb.com/">IMDb</a>, projetado para que os usuários possam descobrir e explorar novas produções, atores, títulos bem avaliados e acompanhar o que está em alta no momento.
 
 ## Tecnologias:
 
