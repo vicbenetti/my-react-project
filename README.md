@@ -10,7 +10,7 @@ Também utilizei outras tecnologias como HTML, CSS, JavaScript, Node.js, jQuery,
 
 ## Como acessar?
 
-Para visualizar o site, basta acessar o link:
+Para visualizar o site, basta acessar o link: https://my-react-project-rho.vercel.app
 
 O projeto foi pensado para telas com resolução de 1920x1080, mas também suporta resoluções maiores, como 2160x1440, e menores, como 1368x768.
 
