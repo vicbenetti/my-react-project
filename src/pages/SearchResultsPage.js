@@ -20,12 +20,11 @@ const SearchResultsPage = () => {
         params: { api_key: API_KEY, query, language: 'pt-BR' },
       });
 
-      // Filtrar resultados para exibir apenas itens com mais de 500 votos (ou atores)
       const filteredResults = response.data.results
         .filter(result => 
-          (result.vote_count > 50 || result.media_type === 'person') // Verifica contagem de votos ou se é um ator
+          (result.vote_count > 50 || result.media_type === 'person') 
         )
-        .slice(0, 18); // Limita aos 16 primeiros resultados
+        .slice(0, 18);
 
       setSearchResults(filteredResults);
     } catch (err) {
@@ -42,7 +41,7 @@ const SearchResultsPage = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search?query=${encodeURIComponent(searchQuery)}`); // Atualizar a URL
+    navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
   };
 
   return (

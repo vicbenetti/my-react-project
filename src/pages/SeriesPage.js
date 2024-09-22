@@ -116,13 +116,11 @@ const TVShowPage = () => {
               </h1>
               <p>{tvShow.overview}</p>
               
-              {/* Informações da série */}
               <div className="movie-info">
                 <h4>
                   Temporadas: {tvShow.number_of_seasons} | Episódios: {tvShow.number_of_episodes}
                 </h4>
 
-                {/* Exibe provedores de streaming se existirem */}
                 {providers && providers.flatrate && providers.flatrate.length > 0 && (
                   <div className="streaming-providers">
                     <div className="provider-list">

@@ -98,7 +98,6 @@ const MoviePage = () => {
         </form>
       </header>
 
-        {/* Banner */}
         <div
           className="banner"
           style={{
@@ -106,7 +105,6 @@ const MoviePage = () => {
           }}
         ></div>
 
-        {/* Conteúdo do filme */}
         <div className="movie-details">
           <div className="movie-content">
             <div className="poster-and-rating">
@@ -131,13 +129,11 @@ const MoviePage = () => {
               </h1>
               <p>{movie.overview}</p>
 
-              {/* Duração, Diretor e Serviços de Streaming */}
               <div className="movie-info">
                 <h4>
                   Duração: {movie.runtime} minutos | Diretor: {director}
                 </h4>
 
-                {/* Exibe provedores de streaming se existirem */}
                 {providers && providers.flatrate && providers.flatrate.length > 0 && (
                 <div className="streaming-providers">
                   <div className="provider-list">

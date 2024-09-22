@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const API_KEY = '5b5a87f250e0180bbc1c49b6d5fdf5db';
 const MOVIES_API_URL = 'https://api.themoviedb.org/3/movie/top_rated';
-const SERIES_IDS = [95396, 1399, 136315, 76331, 1920, 100088, 1396, 60059, 890, 87739, 1398, 87108];
+const SERIES_IDS = [95396, 1399, 136315, 76331, 1920, 100088];
 const ITEMS_PER_PAGE = 18;
 const EXCLUDEDIDS = [19404, 667257, 12477, 11216, 372058, 637, 1084736, 539];
 
@@ -102,10 +102,8 @@ const HomePage = () => {
 
       <div>
       <section class="recomendations">
-        {/* Header com barra de pesquisa e botão de página inicial */}
         
         <section className='homepage'>
-          {/* Carrossel de recomendações */}
           <div className="carrossel">
             <br></br>
             <h1 className='tituloh1'>Recomendações de nossos editores</h1>
@@ -121,7 +119,6 @@ const HomePage = () => {
         </section>
 
         <section className='seriesfavoritas'>
-        {/* Lista de séries */}
           <hr />
           <h1 className='tituloh1'>Séries para maratonar e não parar mais</h1>
           <div className="movie-container">
@@ -142,7 +139,6 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        {/* Lista de filmes */}
 
         <section className='filmesavaliados'>
           <hr />
