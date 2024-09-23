@@ -1,3 +1,5 @@
+![Captura de tela do projeto](https://private-user-images.githubusercontent.com/141193342/369742460-f1e64bd9-d61c-44dd-9288-a0122b27846e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjcwNjEzOTksIm5iZiI6MTcyNzA2MTA5OSwicGF0aCI6Ii8xNDExOTMzNDIvMzY5NzQyNDYwLWYxZTY0YmQ5LWQ2MWMtNDRkZC05Mjg4LWEwMTIyYjI3ODQ2ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwOTIzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDkyM1QwMzExMzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZGVmNzIwYzNiYTQ2ZGEzODBlMzc4NDgyOGFiYjRiNWJjZDU1MWI2MzEwMjIzN2ZjM2NjNTZjN2IxMWM2MWUyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Ph7FzI5jzGSzBqUDUIM2pLBOMSAJjjJ-wqhXxgZIk6Q)
+
 ## Sobre o projeto:
 
 Um site de filmes e séries inspirado em plataformas populares como <a href="https://letterboxd.com/">Letterboxd</a> e <a href="https://imdb.com/">IMDb</a>, projetado para que os usuários possam descobrir e explorar novas produções, atores, títulos bem avaliados e acompanhar o que está em alta no momento.
